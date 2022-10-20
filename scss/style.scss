@@ -1,0 +1,276 @@
+@import 'vars.scss';
+@import 'reset.scss';
+
+button:hover {
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 360;
+}
+
+.card {
+    margin: 20px auto;
+    display: grid;
+    grid-template-rows: 1fr 1fr 2fr 1fr;
+    width: 341px;
+    height: 610px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 17px;
+
+    .photo {
+        width: 341px;
+        height: 220px;
+        background-image: url(../imgs/sankt-peterburg-piter-st-3495.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        border-top-right-radius: 17px;
+
+        .new-yellow,
+        .new-purple {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 99px;
+            height: 35px;
+            color: #3E3E3E;
+            font-size: 12px;
+            font-weight: 600;
+            background: #FED74B;
+            margin-top: 41px;
+            text-transform: uppercase;
+        }
+
+        .new-purple {
+            background: $medium-purple;
+            margin: 0;
+            border-bottom-right-radius: 17px;
+            border-top-left-radius: 17px;
+            color: #fff;
+        }
+    }
+
+    .card-header {
+        display: flex;
+        flex-direction: column;
+
+
+        &__length {
+            margin: 12px 12px 0 12px;
+            display: inline-block;
+            vertical-align: middle;
+            display: flex;
+            width: 100%;
+            color: $light-grey;
+
+            .a {
+                grid-area: text;
+                display: block;
+            }
+        }
+
+        &__length .a::before {
+            content: url(../imgs/clock-circular-outline.png);
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 9px;
+            padding-top: 3px;
+
+        }
+
+        &__title {
+            margin: 10px 12px 0 12px;
+            width: 317px;
+            height: 62px;
+            font-weight: 600;
+            color: $dark-grey;
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+
+    .card-services {
+        margin-left: 12px;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1.5fr 1.5fr;
+        text-align: start;
+
+        .with-buttons {
+            height: 40px;
+        }
+
+        &__service {
+            // display: flex;
+            font-weight: 400;
+            line-height: 20px;
+            font-size: 14px;
+            text-align: center;
+
+        }
+
+        .inner-span {
+            display: block;
+            margin-left: 26px;
+        }
+
+        li::before {
+            content: url(../imgs/bird.svg);
+            margin-right: 10px;
+        }
+
+        .time {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-auto-flow: row;
+            grid-gap: 5px;
+            margin-top: 5px;
+
+            .hidden {
+                visibility: hidden;
+            }
+
+            .show {
+                visibility: visible;
+            }
+
+            &__btn {
+                width: 64px;
+                height: 24px;
+                background-color: $mild-blue;
+                border-radius: 10px;
+            }
+
+            &__btn:hover {
+                background-color: #6BA6FF;
+            }
+        }
+    }
+
+    .card-footer {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-areas: 'price button';
+
+        &__price {
+            grid-area: price;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 19px;
+            margin-top: 5px;
+        }
+
+        .main-price {
+            margin-top: 10px;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 20px;
+        }
+
+        .main-price::after {
+            content: url(../imgs/ruble.png);
+            height: 30px;
+        }
+
+        .pier-price {
+            font-size: 10px;
+            line-height: 20px;
+        }
+
+        &__btn {
+            grid-area: button;
+            background: $more-button;
+            margin-top: 10px;
+            border: 1px solid $more-button-border;
+            width: 165px;
+            height: 44px;
+            border-radius: 22px;
+            margin: 35px auto 30px auto;
+
+        }
+
+    }
+
+}
+
+@media only screen and(min-width:1200px) {
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .card {
+        display: grid;
+        grid-template-areas:
+            'photo header'
+            'photo servises'
+            'photo footer'
+        ;
+        width: 1070px;
+        height: 370px;
+        max-height: 400px;
+
+        .photo {
+            grid-area: photo;
+            background-size: 100%;
+            width: 473px;
+            height: 369px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 16px;
+        }
+
+        .card-header {
+            flex-direction: column-reverse;
+            justify-content: space-between;
+
+            &__title {
+                display: block;
+                margin-top: 20px;
+                width: 90%;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 34px;
+            }
+
+        }
+
+        .card-services {
+            margin-top: 10px;
+            grid-template-rows: 1fr 1fr 1fr 1.5fr;
+            grid-row-gap: 18px;
+            width: 90%;
+            line-height: 20px;
+            font-size: 18px;
+            font-weight: 400;
+            color: #343434;
+
+            .inner-span {
+                display: inline-block;
+                margin-left: 0;
+            }
+        }
+
+        .with-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-top: -2px;
+            margin-bottom: 2px;
+        }
+
+        .card-footer {
+            grid-template-columns: 2fr 5fr;
+            margin-top: -10px;
+
+            &__btn {
+                margin: 23px;
+                margin-left: 0;
+            }
+        }
+
+    }
+}
